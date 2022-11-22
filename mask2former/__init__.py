@@ -24,3 +24,5 @@ from .test_time_augmentation import SemanticSegmentorWithTTA
 
 # evaluation
 from .evaluation.instance_evaluation import InstanceSegEvaluator
+
+__version__ = "0.1"
