@@ -15,12 +15,12 @@ ADE_CATEGORIES = [{'id': 7, 'name': 'bed'}, {'id': 8, 'name': 'windowpane'}, {'i
 _PREDEFINED_SPLITS = {
     # point annotations without masks
     "ade20k_instance_train": (
-        "ADEChallengeData2016/images/training",
-        "ADEChallengeData2016/ade20k_instance_train.json",
+        "ade/ADEChallengeData2016/images/training",
+        "ade/ADEChallengeData2016/ade20k_instance_train.json",
     ),
     "ade20k_instance_val": (
-        "ADEChallengeData2016/images/validation",
-        "ADEChallengeData2016/ade20k_instance_val.json",
+        "ade/ADEChallengeData2016/images/validation",
+        "ade/ADEChallengeData2016/ade20k_instance_val.json",
     ),
 }
 

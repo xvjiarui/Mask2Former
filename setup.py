@@ -24,7 +24,7 @@ def get_version():
 # Copied from Detectron2
 def get_extensions():
     this_dir = os.path.dirname(os.path.abspath(__file__))
-    extensions_dir = os.path.join(this_dir, "mask2former/modeling/mask2former/pixel_decoder/ops/", "src")
+    extensions_dir = os.path.join(this_dir, "mask2former/modeling/pixel_decoder/ops/src")
 
     main_file = glob.glob(os.path.join(extensions_dir, "*.cpp"))
     source_cpu = glob.glob(os.path.join(extensions_dir, "cpu", "*.cpp"))
@@ -80,6 +80,7 @@ setup(
     python_requires=">=3.6",
     install_requires=[
         "detectron2 @ https://github.com/facebookresearch/detectron2/archive/v0.6.zip",
+        "scipy>=1.7.3",
         "boto3>=1.21.25",
         "hydra-core==1.1.1",
         # there is BC breaking in omegaconf 2.2.1

@@ -942,7 +942,7 @@ def _get_ade20k_full_meta():
 
 
 def register_all_ade20k_full(root):
-    root = os.path.join(root, "ADE20K_2021_17_01")
+    root = os.path.join(root, "ade/ADE20K_2021_17_01")
     meta = _get_ade20k_full_meta()
     for name, dirname in [("train", "training"), ("val", "validation")]:
         image_dir = os.path.join(root, "images_detectron2", dirname)

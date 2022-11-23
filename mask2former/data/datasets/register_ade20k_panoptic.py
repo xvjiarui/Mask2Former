@@ -307,18 +307,18 @@ def register_ade20k_panoptic(
 
 _PREDEFINED_SPLITS_ADE20K_PANOPTIC = {
     "ade20k_panoptic_train": (
-        "ADEChallengeData2016/images/training",
-        "ADEChallengeData2016/ade20k_panoptic_train",
-        "ADEChallengeData2016/ade20k_panoptic_train.json",
-        "ADEChallengeData2016/annotations_detectron2/training",
-        "ADEChallengeData2016/ade20k_instance_train.json",
+        "ade/ADEChallengeData2016/images/training",
+        "ade/ADEChallengeData2016/ade20k_panoptic_train",
+        "ade/ADEChallengeData2016/ade20k_panoptic_train.json",
+        "ade/ADEChallengeData2016/annotations_detectron2/training",
+        "ade/ADEChallengeData2016/ade20k_instance_train.json",
     ),
     "ade20k_panoptic_val": (
-        "ADEChallengeData2016/images/validation",
-        "ADEChallengeData2016/ade20k_panoptic_val",
-        "ADEChallengeData2016/ade20k_panoptic_val.json",
-        "ADEChallengeData2016/annotations_detectron2/validation",
-        "ADEChallengeData2016/ade20k_instance_val.json",
+        "ade/ADEChallengeData2016/images/validation",
+        "ade/ADEChallengeData2016/ade20k_panoptic_val",
+        "ade/ADEChallengeData2016/ade20k_panoptic_val.json",
+        "ade/ADEChallengeData2016/annotations_detectron2/validation",
+        "ade/ADEChallengeData2016/ade20k_instance_val.json",
     ),
 }
 
