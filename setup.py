@@ -47,14 +47,15 @@ def get_extensions():
             "-D__CUDA_NO_HALF2_OPERATORS__",
         ]
     else:
-        if CUDA_HOME is None:
-            raise NotImplementedError(
-                "CUDA_HOME is None. Please set environment variable CUDA_HOME."
-            )
-        else:
-            raise NotImplementedError(
-                "No CUDA runtime is found. Please set FORCE_CUDA=1 or test it by running torch.cuda.is_available()."  # noqa
-            )
+        if not os.environ.get("FORCE_CPU"):
+            if CUDA_HOME is None:
+                raise NotImplementedError(
+                    "CUDA_HOME is None. Please set environment variable CUDA_HOME."
+                )
+            else:
+                raise NotImplementedError(
+                    "No CUDA runtime is found. Please set FORCE_CUDA=1 or test it by running torch.cuda.is_available()."  # noqa
+                )
 
     sources = [os.path.join(extensions_dir, s) for s in sources]
     include_dirs = [extensions_dir]
