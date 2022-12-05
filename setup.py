@@ -23,6 +23,10 @@ def get_version():
 
 # Copied from Detectron2
 def get_extensions():
+    # skip building
+    if not (os.environ.get("FORCE_CUDA") or torch.cuda.is_available()) or CUDA_HOME is None:
+        return []
+
     this_dir = os.path.dirname(os.path.abspath(__file__))
     extensions_dir = os.path.join(this_dir, "mask2former/modeling/pixel_decoder/ops/src")
 
@@ -47,15 +51,14 @@ def get_extensions():
             "-D__CUDA_NO_HALF2_OPERATORS__",
         ]
     else:
-        if not os.environ.get("FORCE_CPU"):
-            if CUDA_HOME is None:
-                raise NotImplementedError(
-                    "CUDA_HOME is None. Please set environment variable CUDA_HOME."
-                )
-            else:
-                raise NotImplementedError(
-                    "No CUDA runtime is found. Please set FORCE_CUDA=1 or test it by running torch.cuda.is_available()."  # noqa
-                )
+        if CUDA_HOME is None:
+            raise NotImplementedError(
+                "CUDA_HOME is None. Please set environment variable CUDA_HOME."
+            )
+        else:
+            raise NotImplementedError(
+                "No CUDA runtime is found. Please set FORCE_CUDA=1 or test it by running torch.cuda.is_available()."  # noqa
+            )
 
     sources = [os.path.join(extensions_dir, s) for s in sources]
     include_dirs = [extensions_dir]
