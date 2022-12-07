@@ -135,8 +135,9 @@ def register_coco_panoptic_annos_sem_seg(
     name, metadata, image_root, panoptic_root, panoptic_json, sem_seg_root, instances_json
 ):
     panoptic_name = name
-    delattr(MetadataCatalog.get(panoptic_name), "thing_classes")
-    delattr(MetadataCatalog.get(panoptic_name), "thing_colors")
+    if panoptic_name in MetadataCatalog:
+        delattr(MetadataCatalog.get(panoptic_name), "thing_classes")
+        delattr(MetadataCatalog.get(panoptic_name), "thing_colors")
     MetadataCatalog.get(panoptic_name).set(
         thing_classes=metadata["thing_classes"],
         thing_colors=metadata["thing_colors"],
