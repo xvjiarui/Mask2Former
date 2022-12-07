@@ -124,6 +124,10 @@ def load_coco_panoptic_json(json_file, image_dir, gt_dir, semseg_dir, meta):
                 "segments_info": segments_info,
             }
         )
+        # handle caption
+        if "coco_captions" in ann:
+            ret[-1]["coco_captions"] = ann["coco_captions"]
+
     assert len(ret), f"No images found in {image_dir}!"
     assert PathManager.isfile(ret[0]["file_name"]), ret[0]["file_name"]
     assert PathManager.isfile(ret[0]["pan_seg_file_name"]), ret[0]["pan_seg_file_name"]
